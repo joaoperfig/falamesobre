@@ -112,7 +112,7 @@ def gptchat(topic, summary, conversation):
         key = f.read().strip()
     openai.api_key = key
 
-    messages = [{"role": "system", "content": "You are a helpful assistant that provides accurate information about the recent developments on different topics. You will be given a summary with information on the topic over the last few years. You can use this information to inform yourself and you can also use information that you already knew beyond that. You emphasize how things changed over the years. The conversation will be held in european portuguese. You are part of a project called 'Fala-me sobre'. The topic for this conversation is "+topic+" and the summaries are:\n"+summary}]
+    messages = [{"role": "system", "content": "You are a helpful assistant that provides accurate information about the recent developments on different topics. You will be given a summary with information on the topic over the last few years. You can use this information to inform yourself and you can also use information that you already knew beyond that. You emphasize how things changed over the years. The conversation will be held in european portuguese. You are part of a project called 'Fala-me sobre'. You keep your answers very short, only providing the requested information, and avoiding sharing more than what was asked. The topic for this conversation is "+topic+" and the summaries are:\n"+summary}]
     current = "user"
     for message in conversation:
         messages += [{"role":current, "content":message}]
