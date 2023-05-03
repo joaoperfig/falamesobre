@@ -99,7 +99,7 @@ def gptsummary(topic, texts):
       model="gpt-3.5-turbo",
       messages=[
             {"role": "system", "content": "You are a helpful assistant that summarizes documents."},
-            {"role": "user", "content": " I need your help to summarize relevant information related to a specific query topic. I will provide you with multiple texts and a query word or expression. Your task is to filter out any irrelevant content and generate a concise summary of the relevant information. Please ensure that the summary captures the essential details of the text while avoiding unnecessary information. The summarized information will be used later, so accuracy is crucial. Thank you for your assistance! Summaries should be around 400 words long."},
+            {"role": "user", "content": " I need your help to summarize relevant information related to a specific query topic. I will provide you with multiple texts and a query word or expression. Your task is to filter out any irrelevant content and generate a concise summary of the relevant information. Please ensure that the summary captures the essential details of the text while avoiding unnecessary information. The summarized information will be used later, so accuracy is crucial.  Summaries should be around 500 words long. Include as many specific details as possible. Thank you for your assistance!"},
             {"role": "assistant", "content": "Of course, I will reply with the summary."},
             {"role": "user", "content": "This time the topic is: "+topic+"\n\nHere are the texts:\n\n"+texts}
         ]
@@ -132,7 +132,16 @@ def gptchat(topic, summary, conversation):
 
 @app.get("/resumo/{query}")
 async def makesummary(query: str):
-    fullsummary = ""
+
+    print("Sending general query of",query,"to arquivo")
+    items = arquivorequest(query, None, None, [])
+    texts = ""
+    for item in items:
+        texts += item["content"][:1000]
+    print("Sending texts to chatgpt")
+    summary = gptsummary(query, texts)
+    fullsummary = "General info:\n\n"+summary
+
     for year in [2006, 2009, 2011, 2014, 2017, 2020]:
         startyear = year
         endyear = year+3
@@ -148,6 +157,7 @@ async def makesummary(query: str):
         summary = gptsummary(query, texts)
         print(summary[:500])
         fullsummary += "From year "+str(startyear) + " to year " + str(endyear) + ":\n\n" + summary + "\n\n"
+
 
     with open("latestsummary.txt", "w") as f:
         f.write(fullsummary)
