@@ -5,8 +5,8 @@ const msgerChat = get(".msger-chat");
 const urlParams = new URLSearchParams(window.location.search);
 const topic = urlParams.get('topic');
 
-var api = "http://127.0.0.1:8000/"
-//var api = "https://falamesobre-1-b8293400.deta.app/docs"
+var api = "http://127.0.0.1:8000/";
+//var api = "http://188.37.68.45:22123/";
 
 console.log("Topic: "+topic);
 

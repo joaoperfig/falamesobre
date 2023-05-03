@@ -11,7 +11,8 @@ async function main(topic) {
 
 }
 
-var api = "http://127.0.0.1:8000/"
+var api = "http://127.0.0.1:8000/";
+//var api = "http://188.37.68.45:22123/";
 
 async function sendapi(query) {
   console.log("Sending " + query + " to api");

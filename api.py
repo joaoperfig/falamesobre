@@ -12,31 +12,7 @@ app = FastAPI()
 class Conversation(BaseModel):
   parts: List[str]
 
-siteSearch = [
-  'https://noticias.sapo.pt/',
-  'https://www.jornaldenegocios.pt/',
-  'https://www.tsf.pt/',
-  'https://sol.sapo.pt/',
-  'https://www.lux.iol.pt/',
-  'https://www.iol.pt/',
-  'https://www.tvi24.iol.pt/',
-  'https://www.ionline.pt/',
-  'https://www.sapo.pt/',
-  'https://www.jn.pt/',
-  'https://expresso.sapo.pt/',
-  'https://dnoticias.pt/',
-  'https://abola.pt/',
-  'https://www.dinheirovivo.pt/',
-  'https://economico.sapo.pt/',
-  'https://sicnoticias.sapo.pt/',
-  'https://www.aeiou.pt/',
-  'https://www.sabado.pt/',
-  'https://www.cmjornal.pt/',
-  'http://publico.pt/',
-  'http://www.rtp.pt/',
-  'http://www.dn.pt/',
-  'http://news.google.pt/'
-]
+siteSearch = ['https://www.acorianooriental.pt/', 'https://www.auroradolima.com/', 'https://www.dn.pt/', 'http://diariodosacores.pt/', 'http://livraria.apostoladodaoracao.pt/revistas/mensageiro-digital', 'https://www.dnoticias.pt/', 'https://www.soberaniadopovo.pt/', 'https://vozoperario.pt/jornal/', 'http://www.jornalestarreja.com/', 'https://www.guimaraesdigital.pt/', 'http://jornalmariadafonte.blogspot.com/', 'https://www.jn.pt/', 'https://correiodoribatejo.pt/', 'https://correiodafeira.pt/', 'https://jornaldeabrantes.sapo.pt/', 'https://www.acomarcadearganil.pt/', 'https://www.facebook.com/jornaloconcelhodeestarreja/', 'https://www.salesianos.pt/bs/', 'https://www.jornalaguarda.com/', 'https://folhadetondela.pt/', 'https://cardealsaraiva.com/', 'https://noticiasdacovilha.pt/', 'https://www.jornalaordem.pt/', 'http://artigosjornaljoaosemana.blogspot.pt/', 'https://www.noticiasdegouveia.pt/', 'https://folhadodomingo.pt/', 'http://oamigodopovo1916.blogspot.com/', 'https://www.odespertar.pt/', 'https://www.jornalodever.pt/', 'https://oalmonda.net/', 'https://ofigueirense.com/', 'https://correiodosacores.pt/', 'https://jornaldealbergaria.pt/', 'https://oilhavense.com/', 'https://osetubalense.com/', 'https://www.diariodominho.pt/', 'https://www.correiodeazemeis.pt/', 'https://adefesa.org/', 'https://noticias.sapo.pt/', 'https://www.jornaldenegocios.pt/', 'https://www.tsf.pt/', 'https://sol.sapo.pt/', 'https://www.lux.iol.pt/', 'https://www.iol.pt/', 'https://www.tvi24.iol.pt/', 'https://www.ionline.pt/', 'https://www.sapo.pt/', 'https://expresso.sapo.pt/', 'https://dnoticias.pt/', 'https://abola.pt/', 'https://www.dinheirovivo.pt/', 'https://economico.sapo.pt/', 'https://sicnoticias.sapo.pt/', 'https://www.aeiou.pt/', 'https://www.sabado.pt/', 'https://www.cmjornal.pt/', 'http://publico.pt/', 'http://www.rtp.pt/', 'http://www.dn.pt/', 'http://news.google.pt/']
 
 
 app.add_middleware(
